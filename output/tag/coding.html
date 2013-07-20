@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Alex Ravenel - coding</title>
+
+    <link rel="stylesheet" href="/theme/css/normalize.css" />
+    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="/theme/css/style.css" />
+    <link rel="stylesheet" href="/theme/css/pygments.css" />	
+    <script src="/theme/js/custom.modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="">Alex Ravenel</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+	
+                    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+            
+            
+
+                            <article>
+                <a href="/compiling-python-extensions-in-windows-inside-virtualenv.html"><h3 class="article-title">Compiling Python Extensions in Windows Inside Virtualenv</h3></a>
+                <h6 class="subheader" title="2012-08-23T11:53:00">Thu 23 August 2012
+    </h6>
+
+
+<p>If you are writing much Python code, there is a good chance you are
+using Virtualenv. If you are doing this under Windows, you may have had
+any number of problems (see <a class="reference external" href="http://www.alexravenel.com/?p=82">previous rant</a>).</p>
+<p>My most recent issue came with trying to install Celery inside a
+virtualenv. My installation was failing when compiling the Billiard
+dependency with the following error:</p>
+<blockquote>
+<p><tt class="docutils literal"><span class="pre">C:\MinGW\bin\gcc.exe</span> <span class="pre">-shared</span> <span class="pre">-s</span> <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\multiprocessing.o</span> <span class="pre">build\temp.win32-2.7\Re</span> lease\modules\_billiard\semaphore.o <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\pipe_connection.o</span> <span class="pre">build\temp.win32-2.</span> 7\Release\modules\_billiard\socket_connection.o <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\win32_functions.o</span> build\t <span class="pre">emp.win32-2.7\Release\modules\_billiard\_billiard.def</span> <span class="pre">-LC:\Users\aravenel\code\WeeklyMenus\venv\libs</span> <span class="pre">-LC:\Users\aravenel</span> \code\WeeklyMenus\venv\PCbuild <span class="pre">-lws2_32</span> <span class="pre">-lpython27</span> <span class="pre">-lmsvcr90</span> <span class="pre">-o</span> <span class="pre">build\lib.win32-2.7\_billiard.pyd</span></tt></p>
+<p>c:/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/ld.exe:
+cannot find -lpython27</p>
+<p>collect2: ld returned 1 exit status</p>
+<p>error: command 'gcc' failed with exit status 1</p>
+</blockquote>
+<p>This as it turns out is an issue with the Virtualenv not correctly
+knowing the location of the Python libraries upon which it depends
+(notably libpython27.a). To fix this, simply edit the activate.bat
+script in your venv/Scripts folder to add the following line:</p>
+<blockquote>
+<tt class="docutils literal">set <span class="pre">LIBRARY_PATH=c:\python27\libs</span></tt></blockquote>
+<p>Voila. No more compiler errors.</p>
+<p>Answer found (as usual!) on <a class="reference external" href="http://stackoverflow.com/questions/1015605/how-do-i-compile-python-c-extensions-using-mingw-inside-a-virtualenv">StackOverflow</a></p>
+<p class="subheader">Category: <a href="/category/python.html">Python</a>
+
+    Tagged: 
+        <a href="/tag/coding.html">coding </a>
+        <a href="/tag/programming.html">programming </a>
+        <a href="/tag/python.html">python </a>
+        <a href="/tag/virtualenv.html">virtualenv </a>
+        <a href="/tag/windows.html">windows </a>
+    </p>
+
+
+
+            </article>
+
+            
+                            <hr  class="gradient"/>
+            
+                
+                    
+
+                
+            <article>
+                <a href="/dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html"><h3 class="article-title">Don't write Python code in Windows (or, how to install Celery via pip in Windows).</h3></a>
+                <h6 class="subheader" title="2012-07-23T14:52:00">Mon 23 July 2012
+    </h6>
+
+
+<p>Seriously, just don't.</p>
+<p>I love Python. I got my start writing it at work to automate simple but
+tedious tasks (&quot;rename these 4,000 files according to their author and
+timestamp&quot;), but quickly started tinkering with it for all sorts of
+other uses. One of the things I love ...</p><p class="subheader">Category: <a href="/category/linux-python.html">Linux, Python</a>
+
+    Tagged: 
+        <a href="/tag/celery.html">celery </a>
+        <a href="/tag/coding.html">coding </a>
+        <a href="/tag/pip.html">pip </a>
+        <a href="/tag/programming.html">programming </a>
+        <a href="/tag/python.html">python </a>
+        <a href="/tag/windows.html">windows </a>
+    </p>
+
+
+
+                <a class="button radius secondary small right" href="/dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+        
+                    <!-- /#posts-list -->
+                            <div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
+
+<p>
+    
+    </p>
+</div>
+                        
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="/archives.html">Archives</a>
+            <li><a href="/tags.html">Tags</a>
+                                </ul>
+
+        		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+                    <li><a href="/category/linux.html">Linux</a></li>
+                    <li><a href="/category/linux-python.html">Linux, Python</a></li>
+                    <li><a href="/category/miscellaneous.html">Miscellaneous</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/uncategorized.html">Uncategorized</a></li>
+                    <li><a href="/category/vim.html">VIM</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+           
+        </ul>
+        
+                <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+                    <li><a href="http://getpelican.com/">Pelican</a></li>
+                    <li><a href="http://python.org/">Python.org</a></li>
+                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                    <li><a href="#">You can modify those links in your config file</a></li>
+                </ul>
+        		
+                <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+                    <li><a href="#">You can add links in your config file</a></li>
+                    <li><a href="#">Another social link</a></li>
+                </ul>
+        
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+                <p>Alex Ravenel by Alex Ravenel</p>
+            </div>
+            </div>
+    </div>
+</footer>

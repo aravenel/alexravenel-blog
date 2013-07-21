@@ -22,7 +22,7 @@ LINKS =  (('Pelican', 'http://getpelican.com/'),
           ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
+SOCIAL = (('http://www.twitter.com/aravenel', '#'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 5

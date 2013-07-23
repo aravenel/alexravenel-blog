@@ -30,6 +30,8 @@ MENUITEMS = (
 
 DEFAULT_PAGINATION = 5
 
+DISQUS_SITENAME = 'Alex Ravenel'
+
 THEME = 'themes/tuxlite_zf'
 
 # Uncomment following line if you want document-relative URLs when developing

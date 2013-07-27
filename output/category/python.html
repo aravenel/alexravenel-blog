@@ -1,149 +1,91 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8" />
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Alex Ravenel - Python KenIngle.com</title>
 
-    <title>Alex Ravenel - Python</title>
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="" class="grv-img"/></div>
+        <div class="title"><a href="http://localhost:8000/">Alex Ravenel </a></div>
+        <div class="sub-title"></div>
 
-    <link rel="stylesheet" href="/theme/css/normalize.css" />
-    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
-    <link rel="stylesheet" href="/theme/css/style.css" />
-    <link rel="stylesheet" href="/theme/css/pygments.css" />	
-    <script src="/theme/js/custom.modernizr.js"></script>
-</head>
+        <p>
+      <div class="view"><a href="http://localhost:8000/pages/about-alex.html">About Alex</a></div>
+      <div class="view"><a href="http://localhost:8000/pages/contact-alex.html">Contact Alex</a></div>
+    <div class="view"><a href="http://localhost:8000/archives.html">Archives</a></div>
+</p>
 
-<body>
-
-<!-- Nav Bar -->
-<nav>
-<div class="top-bar">
-<div class="row">
-    <div class="large-9 large-centered columns">
-	    <h1><a href="">Alex Ravenel</a></h1>
-    </div>
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+      <li><a href="http://www.twitter.com/aravenel">twitter</a></li>
+      <li><a href="https://github.com/aravenel">github</a></li>
+      <li><a href="http://www.linkedin.com/profile/view?id=23712282">linkedin</a></li>
+  </ul>
 </div>
-</div>
 
-<!-- Show menu items and pages -->
-<div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
-	    <li><a href="" class="button secondary small">Home</a></li>
-    
-                        <li><a href="/pages/about-alex.html" class="button secondary small">About Alex</a></li>
-                    <li><a href="/pages/contact-alex.html" class="button secondary small">Contact Alex</a></li>
-                </ul>
-</div>
-</div>
-</nav>
-<!-- End Nav -->
-
-
-<!-- Main Page Content and Sidebar -->
-<div class="row">
-
-    <!-- Main Blog Content -->
-    <div class="large-9 columns">
-            
-            
-
-                            <article>
-                <a href="/compiling-python-extensions-in-windows-inside-virtualenv.html"><h3 class="article-title">Compiling Python Extensions in Windows Inside Virtualenv</h3></a>
-                <h6 class="subheader" title="2012-08-23T11:53:00">Thu 23 August 2012
-    </h6>
-
-
-<p>If you are writing much Python code, there is a good chance you are
+      </header>
+      <section>
+                  <div class="front-title"><a href="http://localhost:8000/compiling-python-extensions-in-windows-inside-virtualenv.html">Compiling Python Extensions in Windows Inside Virtualenv</a></div>
+      <p>
+<small>
+<abbr class="published" title="2012-08-23T11:53:00">
+  Thu 23 August 2012
+</abbr> | 
+  tags: 
+      <a href="http://localhost:8000/tag/coding.html">coding</a>, 
+      <a href="http://localhost:8000/tag/programming.html">programming</a>, 
+      <a href="http://localhost:8000/tag/python.html">python</a>, 
+      <a href="http://localhost:8000/tag/virtualenv.html">virtualenv</a>, 
+      <a href="http://localhost:8000/tag/windows.html">windows</a>, 
+   -- (<a href="http://localhost:8000/compiling-python-extensions-in-windows-inside-virtualenv.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>If you are writing much Python code, there is a good chance you are
 using Virtualenv. If you are doing this under Windows, you may have had
 any number of problems (see <a class="reference external" href="http://www.alexravenel.com/?p=82">previous rant</a>).</p>
 <p>My most recent issue came with trying to install Celery inside a
-virtualenv. My installation was failing when compiling the Billiard
-dependency with the following error:</p>
-<blockquote>
-<p><tt class="docutils literal"><span class="pre">C:\MinGW\bin\gcc.exe</span> <span class="pre">-shared</span> <span class="pre">-s</span> <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\multiprocessing.o</span> <span class="pre">build\temp.win32-2.7\Re</span> lease\modules\_billiard\semaphore.o <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\pipe_connection.o</span> <span class="pre">build\temp.win32-2.</span> 7\Release\modules\_billiard\socket_connection.o <span class="pre">build\temp.win32-2.7\Release\modules\_billiard\win32_functions.o</span> build\t <span class="pre">emp.win32-2.7\Release\modules\_billiard\_billiard.def</span> <span class="pre">-LC:\Users\aravenel\code\WeeklyMenus\venv\libs</span> <span class="pre">-LC:\Users\aravenel</span> \code\WeeklyMenus\venv\PCbuild <span class="pre">-lws2_32</span> <span class="pre">-lpython27</span> <span class="pre">-lmsvcr90</span> <span class="pre">-o</span> <span class="pre">build\lib.win32-2.7\_billiard.pyd</span></tt></p>
-<p>c:/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/ld.exe:
-cannot find -lpython27</p>
-<p>collect2: ld returned 1 exit status</p>
-<p>error: command 'gcc' failed with exit status 1</p>
-</blockquote>
-<p>This as it turns out is an issue with the Virtualenv not correctly
-knowing the location of the Python libraries upon which it depends
-(notably libpython27.a). To fix this, simply edit the activate.bat
-script in your venv/Scripts folder to add the following line:</p>
-<blockquote>
-<tt class="docutils literal">set <span class="pre">LIBRARY_PATH=c:\python27\libs</span></tt></blockquote>
-<p>Voila. No more compiler errors.</p>
-<p>Answer found (as usual!) on <a class="reference external" href="http://stackoverflow.com/questions/1015605/how-do-i-compile-python-c-extensions-using-mingw-inside-a-virtualenv">StackOverflow</a></p>
-<p class="subheader">Category: <a href="/category/python.html">Python</a>
-
-    Tagged: 
-        <a href="/tag/coding.html">coding </a>
-        <a href="/tag/programming.html">programming </a>
-        <a href="/tag/python.html">python </a>
-        <a href="/tag/virtualenv.html">virtualenv </a>
-        <a href="/tag/windows.html">windows </a>
-    </p>
-
-
-
-<p><a href="/compiling-python-extensions-in-windows-inside-virtualenv.html#disqus_thread">comments</a></p>            </article>
-
-                            <div class="pagination-centered">
-<h6 class="subheader">Page 1 of 1</h6>
-
-<p>
+virtualenv. My installation was ...</p> 
+      <div class="read-more"><a href="http://localhost:8000/compiling-python-extensions-in-windows-inside-virtualenv.html">read more...</a></div>
+      <hr />
     
-    </p>
-</div>
-            
-            
-                
-                    <!-- /#posts-list -->
-                        
+                    </section>
+      <footer>
+        <p><small>&copy; Alex Ravenel &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-    <!-- End Main Content -->
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
 
-    <!-- Sidebar -->
-    <aside class="large-3 columns">
-        <h5 class="sidebar-title">Site</h5>
-        <ul class="side-nav">
-            <li><a href="/archives.html">Archives</a>
-            <li><a href="/tags.html">Tags</a>
-                                </ul>
-
-        		
-        <h5 class="sidebar-title">Categories</h5>
-        <ul class="side-nav">
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/linux-python.html">Linux, Python</a></li>
-                    <li><a href="/category/miscellaneous.html">Miscellaneous</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/uncategorized.html">Uncategorized</a></li>
-                    <li><a href="/category/vim.html">VIM</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-           
-        </ul>
-        
-        		
-                <h5 class="sidebar-title">Social</h5>
-        <ul class="side-nav">
-                    <li><a href="http://www.twitter.com/aravenel">Twitter: @aravenel</a></li>
-                </ul>
-        
-    </aside> <!-- End Sidebar -->
-
-</div> <!-- End Main Content and Sidebar -->
-
-
-<!-- Footer -->
-<footer class="row">
-    <div class="large-12 columns">
-        <hr />
-        <div class="row">
-            <div class="large-6 columns">
-                <p>Alex Ravenel by Alex Ravenel</p>
-            </div>
-            </div>
-    </div>
-</footer>
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

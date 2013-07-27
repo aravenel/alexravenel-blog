@@ -1,165 +1,88 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8" />
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Alex Ravenel - network KenIngle.com</title>
 
-    <title>Alex Ravenel - network</title>
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="" class="grv-img"/></div>
+        <div class="title"><a href="http://localhost:8000/">Alex Ravenel </a></div>
+        <div class="sub-title"></div>
 
-    <link rel="stylesheet" href="/theme/css/normalize.css" />
-    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
-    <link rel="stylesheet" href="/theme/css/style.css" />
-    <link rel="stylesheet" href="/theme/css/pygments.css" />	
-    <script src="/theme/js/custom.modernizr.js"></script>
-</head>
+        <p>
+      <div class="view"><a href="http://localhost:8000/pages/about-alex.html">About Alex</a></div>
+      <div class="view"><a href="http://localhost:8000/pages/contact-alex.html">Contact Alex</a></div>
+    <div class="view"><a href="http://localhost:8000/archives.html">Archives</a></div>
+</p>
 
-<body>
-
-<!-- Nav Bar -->
-<nav>
-<div class="top-bar">
-<div class="row">
-    <div class="large-9 large-centered columns">
-	    <h1><a href="">Alex Ravenel</a></h1>
-    </div>
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+      <li><a href="http://www.twitter.com/aravenel">twitter</a></li>
+      <li><a href="https://github.com/aravenel">github</a></li>
+      <li><a href="http://www.linkedin.com/profile/view?id=23712282">linkedin</a></li>
+  </ul>
 </div>
-</div>
 
-<!-- Show menu items and pages -->
-<div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
-	    <li><a href="" class="button secondary small">Home</a></li>
-    
-                        <li><a href="/pages/about-alex.html" class="button secondary small">About Alex</a></li>
-                    <li><a href="/pages/contact-alex.html" class="button secondary small">Contact Alex</a></li>
-                </ul>
-</div>
-</div>
-</nav>
-<!-- End Nav -->
-
-
-<!-- Main Page Content and Sidebar -->
-<div class="row">
-
-    <!-- Main Blog Content -->
-    <div class="large-9 columns">
-            
-            
-
-                            <article>
-                <a href="/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html"><h3 class="article-title">Gigabyte GA-Z68AP-D3 Network Issues in Ubuntu</h3></a>
-                <h6 class="subheader" title="2012-01-02T09:30:00">Mon 02 January 2012
-    </h6>
-
-
-<p>I recently purchased a Gigabyte GA-Z68AP-D3 motherboard as part of a new
+      </header>
+      <section>
+                  <div class="front-title"><a href="http://localhost:8000/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html">Gigabyte GA-Z68AP-D3 Network Issues in Ubuntu</a></div>
+      <p>
+<small>
+<abbr class="published" title="2012-01-02T09:30:00">
+  Mon 02 January 2012
+</abbr> | 
+  tags: 
+      <a href="http://localhost:8000/tag/linux.html">linux</a>, 
+      <a href="http://localhost:8000/tag/network.html">network</a>, 
+      <a href="http://localhost:8000/tag/ubuntu.html">ubuntu</a>, 
+   -- (<a href="http://localhost:8000/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>I recently purchased a Gigabyte GA-Z68AP-D3 motherboard as part of a new
 PC build. When I went to install Ubuntu on it, my network connection was
 horribly slow--time outs all over the place, slow downloads, and even
-slow transfer speeds on the local network. A bit of research showed a
-mind boggling amount of dropped packets as well. As it turns out, this
-motherboard (and presumably other motherboards of the GA-Z68 series)
-have a Realtek 8111E ethernet chipset, which has some known issues in
-Ubuntu--namely that Ubuntu loads a slightly wrong driver for it. The
-driver works, sort of, but people see lots of issues like mine--dropped
-packets, slow speeds, etc.</p>
-<p>Thankfully the fix is fairly easy. Realtek has the <a class="reference external" href="http://www.realtek.com/downloads/downloadsView.aspx?Langid=1&amp;PNid=13&amp;PFid=5&amp;Level=5&amp;Conn=4&amp;DownTypeID=3&amp;GetDown=false">proper Linux driver
-available</a>. Even though it says it is for kernels 2.4.x and 2.6.x, I
-can confirm that it does indeed work in the 3.0.x kernels present in
-Ubuntu 11.10.</p>
-<p>There are some great instructions over at <a class="reference external" href="http://www.foxhop.net/realtek-dropping-packets-on-linux-ubuntu-and-fedora">Foxhop.net</a>. Note that the
-first step will be making sure that you have your kernel headers and
-build-essential packages installed! After installing the proper driver,
-everything is working just like it should.</p>
-<p>In short, they are:</p>
-<ol class="arabic">
-<li><dl class="first docutils">
-<dt>Get the updated driver:</dt>
-<dd><p class="first last"><tt class="docutils literal">wget <span class="pre">http://www.foxhop.net/attachment/r8168-8.023.00.tar.bz2</span></tt></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Remove the offending kernel module:</dt>
-<dd><p class="first last"><tt class="docutils literal">sudo rmmod r8169</tt></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Install the new driver:</dt>
-<dd><p class="first last"><tt class="docutils literal">cd <span class="pre">r8168-8.023.00</span> sudo ./autorun.sh</tt></p>
-</dd>
-</dl>
-</li>
-</ol>
-<p class="subheader">Category: <a href="/category/uncategorized.html">Uncategorized</a>
-
-    Tagged: 
-        <a href="/tag/linux.html">linux </a>
-        <a href="/tag/network.html">network </a>
-        <a href="/tag/ubuntu.html">ubuntu </a>
-    </p>
-
-
-
-<p><a href="/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html#disqus_thread">comments</a></p>            </article>
-
-                            <div class="pagination-centered">
-<h6 class="subheader">Page 1 of 1</h6>
-
-<p>
+slow transfer speeds on the local network. A bit of research showed a ...</p> 
+      <div class="read-more"><a href="http://localhost:8000/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html">read more...</a></div>
+      <hr />
     
-    </p>
-</div>
-            
-            
-                
-                    <!-- /#posts-list -->
-                        
+                    </section>
+      <footer>
+        <p><small>&copy; Alex Ravenel &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-    <!-- End Main Content -->
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
 
-    <!-- Sidebar -->
-    <aside class="large-3 columns">
-        <h5 class="sidebar-title">Site</h5>
-        <ul class="side-nav">
-            <li><a href="/archives.html">Archives</a>
-            <li><a href="/tags.html">Tags</a>
-                                </ul>
-
-        		
-        <h5 class="sidebar-title">Categories</h5>
-        <ul class="side-nav">
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/linux-python.html">Linux, Python</a></li>
-                    <li><a href="/category/miscellaneous.html">Miscellaneous</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/uncategorized.html">Uncategorized</a></li>
-                    <li><a href="/category/vim.html">VIM</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-           
-        </ul>
-        
-        		
-                <h5 class="sidebar-title">Social</h5>
-        <ul class="side-nav">
-                    <li><a href="http://www.twitter.com/aravenel">Twitter: @aravenel</a></li>
-                </ul>
-        
-    </aside> <!-- End Sidebar -->
-
-</div> <!-- End Main Content and Sidebar -->
-
-
-<!-- Footer -->
-<footer class="row">
-    <div class="large-12 columns">
-        <hr />
-        <div class="row">
-            <div class="large-6 columns">
-                <p>Alex Ravenel by Alex Ravenel</p>
-            </div>
-            </div>
-    </div>
-</footer>
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

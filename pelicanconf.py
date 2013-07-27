@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Alex Ravenel'
 SITENAME = u'Alex Ravenel'
-SITEURL = ''
+SITEURL = 'http://localhost:8000'
 
 TIMEZONE = 'Europe/Paris'
 
@@ -22,17 +22,22 @@ TRANSLATION_FEED_ATOM = None
           #('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('Twitter: @aravenel', 'http://www.twitter.com/aravenel'),)
+SOCIAL = (('twitter', 'http://www.twitter.com/aravenel'),
+          ('github', 'https://github.com/aravenel'),
+          ('linkedin', 'http://www.linkedin.com/profile/view?id=23712282'))
 
 MENUITEMS = (
     ('Home', SITEURL),
 )
 
 DEFAULT_PAGINATION = 5
+#SUMMARY_MAX_LENGTH = None
+DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
 
-DISQUS_SITENAME = 'Alex Ravenel'
+DISQUS_SITENAME = 'alexravenel'
 
-THEME = 'themes/tuxlite_zf'
+THEME = 'themes/sundown/'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

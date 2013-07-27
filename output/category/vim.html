@@ -1,156 +1,87 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8" />
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Alex Ravenel - VIM KenIngle.com</title>
 
-    <title>Alex Ravenel - VIM</title>
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="" class="grv-img"/></div>
+        <div class="title"><a href="http://localhost:8000/">Alex Ravenel </a></div>
+        <div class="sub-title"></div>
 
-    <link rel="stylesheet" href="/theme/css/normalize.css" />
-    <link rel="stylesheet" href="/theme/css/foundation.min.css" />
-    <link rel="stylesheet" href="/theme/css/style.css" />
-    <link rel="stylesheet" href="/theme/css/pygments.css" />	
-    <script src="/theme/js/custom.modernizr.js"></script>
-</head>
+        <p>
+      <div class="view"><a href="http://localhost:8000/pages/about-alex.html">About Alex</a></div>
+      <div class="view"><a href="http://localhost:8000/pages/contact-alex.html">Contact Alex</a></div>
+    <div class="view"><a href="http://localhost:8000/archives.html">Archives</a></div>
+</p>
 
-<body>
-
-<!-- Nav Bar -->
-<nav>
-<div class="top-bar">
-<div class="row">
-    <div class="large-9 large-centered columns">
-	    <h1><a href="">Alex Ravenel</a></h1>
-    </div>
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+      <li><a href="http://www.twitter.com/aravenel">twitter</a></li>
+      <li><a href="https://github.com/aravenel">github</a></li>
+      <li><a href="http://www.linkedin.com/profile/view?id=23712282">linkedin</a></li>
+  </ul>
 </div>
-</div>
 
-<!-- Show menu items and pages -->
-<div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
-	    <li><a href="" class="button secondary small">Home</a></li>
-    
-                        <li><a href="/pages/about-alex.html" class="button secondary small">About Alex</a></li>
-                    <li><a href="/pages/contact-alex.html" class="button secondary small">Contact Alex</a></li>
-                </ul>
-</div>
-</div>
-</nav>
-<!-- End Nav -->
-
-
-<!-- Main Page Content and Sidebar -->
-<div class="row">
-
-    <!-- Main Blog Content -->
-    <div class="large-9 columns">
-            
-            
-
-                            <article>
-                <a href="/vim-minibufexpl.html"><h3 class="article-title">VIM: minibufexpl Performance Issues</h3></a>
-                <h6 class="subheader" title="2011-10-21T12:53:00">Fri 21 October 2011
-    </h6>
-
-
-<p>I work in consulting, and this means that I frequently am asked to work
+      </header>
+      <section>
+                  <div class="front-title"><a href="http://localhost:8000/vim-minibufexpl.html">VIM: minibufexpl Performance Issues</a></div>
+      <p>
+<small>
+<abbr class="published" title="2011-10-21T12:53:00">
+  Fri 21 October 2011
+</abbr> | 
+  tags: 
+      <a href="http://localhost:8000/tag/editor.html">editor</a>, 
+      <a href="http://localhost:8000/tag/vim.html">vim</a>, 
+   -- (<a href="http://localhost:8000/vim-minibufexpl.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>I work in consulting, and this means that I frequently am asked to work
 on clients' machines. As part of my most recent engagement, I've done a
 bit of quick Python scripting to take care of some straightforward
-tasks. I initially installed my default VIM setup on this machine, but
-have run into some issues with it that I haven't experienced elsewhere.</p>
-<p>One of the biggest is an overall slowness when opening, closing, saving,
-or even editing files. Sometimes it would take up to ten seconds to
-enter insert mode--totally unacceptable, and strange for an editor like
-VIM that was originally built to work over paltry network connections
-20+ years ago.</p>
-<p>As it turns out, like many corporate environments, very little is
-actually stored on the local machine. Almost every location that a user
-has write access to is a network drive that has been mapped to a drive
-letter. Also like many corporate networks and SAN setups, this one was
-overtaxed and slow. This, combined with one of the plugins I was using,
-the otherwise excellent minibufexpl, turned out to be causing the bulk
-of my issues, which I discovered after deactivating all of my plugins
-and reactivating them one by one. It seems that minibufexpl was
-traversing all of the open buffers every time a user performed an
-action. I found some chatter about this, and some proposed patches, but
-even after updating to the most recent version, the issue persisted.</p>
-<p>In order to solve it, I unfortunately had to move away from minibufexpl
-for this machine, and replace it with BufExplorer. BufExplorer is not
-ideal for me--I can see how it would be helpful for editing dozens of
-files at once, but I rarely have more than ten or so open at a time, so
-minibufexpl's visual buffer representation is much better for me.
-However, this new setup does fix my issues and after remapping some keys
-in my vimrc--primarily binding <tt class="docutils literal">&lt;leader&gt;b</tt> to <tt class="docutils literal">:BufExplorer</tt>, it's
-almost as nice.</p>
-<p>Hopefully, minibufexpl will fix this at some point in the future. Until
-then, its BufExplorer for me.</p>
-<p class="subheader">Category: <a href="/category/vim.html">VIM</a>
-
-    Tagged: 
-        <a href="/tag/editor.html">editor </a>
-        <a href="/tag/vim.html">vim </a>
-    </p>
-
-
-
-<p><a href="/vim-minibufexpl.html#disqus_thread">comments</a></p>            </article>
-
-                            <div class="pagination-centered">
-<h6 class="subheader">Page 1 of 1</h6>
-
-<p>
+tasks. I initially installed my default VIM setup on this machine ...</p> 
+      <div class="read-more"><a href="http://localhost:8000/vim-minibufexpl.html">read more...</a></div>
+      <hr />
     
-    </p>
-</div>
-            
-            
-                
-                    <!-- /#posts-list -->
-                        
+                    </section>
+      <footer>
+        <p><small>&copy; Alex Ravenel &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-    <!-- End Main Content -->
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
 
-    <!-- Sidebar -->
-    <aside class="large-3 columns">
-        <h5 class="sidebar-title">Site</h5>
-        <ul class="side-nav">
-            <li><a href="/archives.html">Archives</a>
-            <li><a href="/tags.html">Tags</a>
-                                </ul>
-
-        		
-        <h5 class="sidebar-title">Categories</h5>
-        <ul class="side-nav">
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/linux-python.html">Linux, Python</a></li>
-                    <li><a href="/category/miscellaneous.html">Miscellaneous</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/uncategorized.html">Uncategorized</a></li>
-                    <li><a href="/category/vim.html">VIM</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-           
-        </ul>
-        
-        		
-                <h5 class="sidebar-title">Social</h5>
-        <ul class="side-nav">
-                    <li><a href="http://www.twitter.com/aravenel">Twitter: @aravenel</a></li>
-                </ul>
-        
-    </aside> <!-- End Sidebar -->
-
-</div> <!-- End Main Content and Sidebar -->
-
-
-<!-- Footer -->
-<footer class="row">
-    <div class="large-12 columns">
-        <hr />
-        <div class="row">
-            <div class="large-6 columns">
-                <p>Alex Ravenel by Alex Ravenel</p>
-            </div>
-            </div>
-    </div>
-</footer>
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

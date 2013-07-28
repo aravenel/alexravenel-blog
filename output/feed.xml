@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alex Ravenel</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feed.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2012-08-23T11:53:00+02:00</updated><entry><title>Compiling Python Extensions in Windows Inside Virtualenv</title><link href="http://localhost:8000/compiling-python-extensions-in-windows-inside-virtualenv.html" rel="alternate"></link><updated>2012-08-23T11:53:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-08-23:compiling-python-extensions-in-windows-inside-virtualenv.html</id><summary type="html">&lt;p&gt;If you are writing much Python code, there is a good chance you are
+using Virtualenv. If you are doing this under Windows, you may have had
+any number of problems (see &lt;a class="reference external" href="http://www.alexravenel.com/?p=82"&gt;previous rant&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;My most recent issue came with trying to install Celery inside a
+virtualenv. My installation was failing when compiling the Billiard
+dependency with the following error:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\MinGW\bin\gcc.exe&lt;/span&gt; &lt;span class="pre"&gt;-shared&lt;/span&gt; &lt;span class="pre"&gt;-s&lt;/span&gt; &lt;span class="pre"&gt;build\temp.win32-2.7\Release\modules\_billiard\multiprocessing.o&lt;/span&gt; &lt;span class="pre"&gt;build\temp.win32-2.7\Re&lt;/span&gt; lease\modules\_billiard\semaphore.o &lt;span class="pre"&gt;build\temp.win32-2.7\Release\modules\_billiard\pipe_connection.o&lt;/span&gt; &lt;span class="pre"&gt;build\temp.win32-2.&lt;/span&gt; 7\Release\modules\_billiard\socket_connection.o &lt;span class="pre"&gt;build\temp.win32-2.7\Release\modules\_billiard\win32_functions.o&lt;/span&gt; build\t &lt;span class="pre"&gt;emp.win32-2.7\Release\modules\_billiard\_billiard.def&lt;/span&gt; &lt;span class="pre"&gt;-LC:\Users\aravenel\code\WeeklyMenus\venv\libs&lt;/span&gt; &lt;span class="pre"&gt;-LC:\Users\aravenel&lt;/span&gt; \code\WeeklyMenus\venv\PCbuild &lt;span class="pre"&gt;-lws2_32&lt;/span&gt; &lt;span class="pre"&gt;-lpython27&lt;/span&gt; &lt;span class="pre"&gt;-lmsvcr90&lt;/span&gt; &lt;span class="pre"&gt;-o&lt;/span&gt; &lt;span class="pre"&gt;build\lib.win32-2.7\_billiard.pyd&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;c:/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/ld.exe:
+cannot find -lpython27&lt;/p&gt;
+&lt;p&gt;collect2: ld returned 1 exit status&lt;/p&gt;
+&lt;p&gt;error: command 'gcc' failed with exit status 1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This as it turns out is an issue with the Virtualenv not correctly
+knowing the location of the Python libraries upon which it depends
+(notably libpython27.a). To fix this, simply edit the activate.bat
+script in your venv/Scripts folder to add the following line:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;set &lt;span class="pre"&gt;LIBRARY_PATH=c:\python27\libs&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;Voila. No more compiler errors.&lt;/p&gt;
+&lt;p&gt;Answer found (as usual!) on &lt;a class="reference external" href="http://stackoverflow.com/questions/1015605/how-do-i-compile-python-c-extensions-using-mingw-inside-a-virtualenv"&gt;StackOverflow&lt;/a&gt;&lt;/p&gt;
+</summary><category term="coding"></category><category term="programming"></category><category term="python"></category><category term="virtualenv"></category><category term="windows"></category></entry><entry><title>Don't write Python code in Windows (or, how to install Celery via pip in Windows).</title><link href="http://localhost:8000/dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html" rel="alternate"></link><updated>2012-07-23T14:52:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-07-23:dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html</id><summary type="html">&lt;p&gt;Seriously, just don't.&lt;/p&gt;
+&lt;p&gt;I love Python. I got my start writing it at work to automate simple but
+tedious tasks (&amp;quot;rename these 4,000 files according to their author and
+timestamp&amp;quot;), but quickly started tinkering with it for all sorts of
+other uses. One of the things I love about it most is that it is
+(usually) clean, clear, and concise. You know exactly what the code is
+doing.&lt;/p&gt;
+&lt;p&gt;However, writing Python code in Windows is a colossal PITA. Whereas in
+Linux (and presumably Mac) the Python binaries and libraries are a
+simple package manager call away, in Windows, there is no shortage of
+the hoops you have to jump through.&lt;/p&gt;
+&lt;p&gt;Most recently, I was trying to install the most recent version of Celery
+on Windows 7 using pip. This however failed with cryptic
+&lt;tt class="docutils literal"&gt;Unable to find vcvarsall.bat&lt;/tt&gt; errors.&lt;/p&gt;
+&lt;p&gt;Turns out, this was related to the Python distutils being unable to find
+a compiler. To resolve this, do the following:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Download and install the MinGW compiler from&amp;nbsp;&lt;a class="reference external" href="http://www.mingw.org/"&gt;http://www.mingw.org/&lt;/a&gt;.
+Make sure to select the c and c++ compilers when installing.&lt;/li&gt;
+&lt;li&gt;Add&amp;nbsp;C:\MinGW\bin (or wherever you installed MinGW) to the system
+path.&lt;/li&gt;
+&lt;li&gt;Open (create if it doesn't exist) the
+file&amp;nbsp;PYTHONPATH\Lib\distutils\distutils.cfg (for me, this was
+in&amp;nbsp;C:\Python27\Lib\distutils).&lt;/li&gt;
+&lt;li&gt;Add the below lines to the file:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;[build]&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;compiler=mingw32&lt;/div&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This resolved the first error. However, that didn't fix everything--now
+I was getting
+&lt;tt class="docutils literal"&gt;gcc: error: unrecognized command line option &lt;span class="pre"&gt;'-mno-cygwin'&lt;/span&gt;&lt;/tt&gt; errors.
+Turns out that this is related to a deprecated gcc flag that the version
+of distutils included in my version of Python (2.7.2) was using.&lt;/p&gt;
+&lt;p&gt;To fix this, I went into C:\Python27\Lib\distutils\distutils.py and
+found all places where it was calling gcc with this deprecated flag.
+There was a cluster of them around line 322. I then removed the
+-mno-cygwin flag from these gcc calls.&lt;/p&gt;
+&lt;p&gt;After this, everything installed successfully. What a pain.&lt;/p&gt;
+&lt;p&gt;Oh, and once it's running, you can't run &lt;tt class="docutils literal"&gt;celeryd&lt;/tt&gt; as all the
+documentation would have it--you need to run
+&lt;tt class="docutils literal"&gt;python &lt;span class="pre"&gt;-m&lt;/span&gt; celery.bin.celeryd&lt;/tt&gt; in Windows. Sigh.&lt;/p&gt;
+&lt;p&gt;Seriously, don't write Python code on Windows--if you can avoid it. I'm
+considering installing VirtualBox on the machines on which I have to run
+Windows just to avoid having to deal with these headaches.&lt;/p&gt;
+</summary><category term="celery"></category><category term="coding"></category><category term="pip"></category><category term="programming"></category><category term="python"></category><category term="windows"></category></entry><entry><title>Manually Set Netflix Streaming Bitrate</title><link href="http://localhost:8000/manually-set-netflix-streaming-bitrate.html" rel="alternate"></link><updated>2012-04-07T13:40:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-04-07:manually-set-netflix-streaming-bitrate.html</id><summary type="html">&lt;p&gt;I stream Netflix to an HTPC I have setup. Depending on what I am
+watching, I sometimes want to manually tweak the quality of the
+streaming beyond Netflix's automatic detection--for example, some videos
+playing in full HD overwhelm the machine's ability to decode the video,
+causing stuttering. Alternatively, I may want to force HD for some
+videos.&lt;/p&gt;
+&lt;p&gt;There is a built-in but not easy to find way to do this. While watching
+the video (not fullscreen), press Ctrl+Alt+Shift+s. This will bring up
+an option to manually set the bitrate. Note that doing this will turn
+off Netflix's automatic detection for the current video, so for example
+if your network connection slows down, you may see stuttering and/or
+buffering.&lt;/p&gt;
+</summary></entry><entry><title>Mango Arepa Sauce</title><link href="http://localhost:8000/caracas-arepa-bar-sauce.html" rel="alternate"></link><updated>2012-03-25T14:09:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-03-25:caracas-arepa-bar-sauce.html</id><summary type="html">&lt;p&gt;And now for something completely different... I live in New York, and
+there is this fantastic restaurant in the East Village called Caracas
+Arepa Bar. While the Arepas there are great, the best part by far is
+this incredible sauce they have that everyone slathers all over
+everything. Some time ago, I found a recipe for something very similar
+over at&lt;a class="reference external" href="http://cheekystitch.wordpress.com/"&gt;CheekyStitch&lt;/a&gt;, but that post seems to be down. Thankfully,
+Google Cache came to the rescue, and I was able to grab the recipe to
+archive here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mango Arepa Sauce&lt;/strong&gt;, originally from &lt;a class="reference external" href="http://cheekystitch.wordpress.com/"&gt;CheekyStitch&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1/2 cup cilantro&lt;/li&gt;
+&lt;li&gt;1/2 cup parsley&lt;/li&gt;
+&lt;li&gt;1 cup (or to taste) extra virgin olive oil&lt;/li&gt;
+&lt;li&gt;1/2 cup vinegar&lt;/li&gt;
+&lt;li&gt;1 1/2 cup of yellow peppers&lt;/li&gt;
+&lt;li&gt;1/2 cup of mango&lt;/li&gt;
+&lt;li&gt;4&amp;nbsp; cloves garlic&lt;/li&gt;
+&lt;li&gt;1/2 teaspoon pepper&lt;/li&gt;
+&lt;li&gt;2 teaspoons cumin&lt;/li&gt;
+&lt;li&gt;1 teaspoon mayo&lt;/li&gt;
+&lt;li&gt;1 tablespoons oregano&lt;/li&gt;
+&lt;li&gt;salt to taste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Put all ingredients but olive oil in blender. Once pureed, gradually mix
+in olive oil until at desired consistency.&lt;/p&gt;
+</summary></entry><entry><title>Gigabyte GA-Z68AP-D3 Network Issues in Ubuntu</title><link href="http://localhost:8000/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html" rel="alternate"></link><updated>2012-01-02T09:30:00+01:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-01-02:gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html</id><summary type="html">&lt;p&gt;I recently purchased a Gigabyte GA-Z68AP-D3 motherboard as part of a new
+PC build. When I went to install Ubuntu on it, my network connection was
+horribly slow--time outs all over the place, slow downloads, and even
+slow transfer speeds on the local network. A bit of research showed a
+mind boggling amount of dropped packets as well. As it turns out, this
+motherboard (and presumably other motherboards of the GA-Z68 series)
+have a Realtek 8111E ethernet chipset, which has some known issues in
+Ubuntu--namely that Ubuntu loads a slightly wrong driver for it. The
+driver works, sort of, but people see lots of issues like mine--dropped
+packets, slow speeds, etc.&lt;/p&gt;
+&lt;p&gt;Thankfully the fix is fairly easy. Realtek has the &lt;a class="reference external" href="http://www.realtek.com/downloads/downloadsView.aspx?Langid=1&amp;amp;PNid=13&amp;amp;PFid=5&amp;amp;Level=5&amp;amp;Conn=4&amp;amp;DownTypeID=3&amp;amp;GetDown=false"&gt;proper Linux driver
+available&lt;/a&gt;. Even though it says it is for kernels 2.4.x and 2.6.x, I
+can confirm that it does indeed work in the 3.0.x kernels present in
+Ubuntu 11.10.&lt;/p&gt;
+&lt;p&gt;There are some great instructions over at &lt;a class="reference external" href="http://www.foxhop.net/realtek-dropping-packets-on-linux-ubuntu-and-fedora"&gt;Foxhop.net&lt;/a&gt;. Note that the
+first step will be making sure that you have your kernel headers and
+build-essential packages installed! After installing the proper driver,
+everything is working just like it should.&lt;/p&gt;
+&lt;p&gt;In short, they are:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Get the updated driver:&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first last"&gt;&lt;tt class="docutils literal"&gt;wget &lt;span class="pre"&gt;http://www.foxhop.net/attachment/r8168-8.023.00.tar.bz2&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Remove the offending kernel module:&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first last"&gt;&lt;tt class="docutils literal"&gt;sudo rmmod r8169&lt;/tt&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Install the new driver:&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first last"&gt;&lt;tt class="docutils literal"&gt;cd &lt;span class="pre"&gt;r8168-8.023.00&lt;/span&gt; sudo ./autorun.sh&lt;/tt&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="linux"></category><category term="network"></category><category term="ubuntu"></category></entry><entry><title>How to Move a Battlefield 3 Install Directory</title><link href="http://localhost:8000/moving-a-battlefield-3-install.html" rel="alternate"></link><updated>2011-11-14T11:11:00+01:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-11-14:moving-a-battlefield-3-install.html</id><summary type="html">&lt;p&gt;I play the occasional PC game with my out-of-town friends--we all get on
+a Vent server and play a few games once a week as a good way to stay in
+touch. One of the games is Battlefield 3. I am in the middle of slowly
+building a new machine, purchasing parts as they go on sale, and as part
+of that, ended up with an SSD. I figured I'd go ahead and throw the SSD
+in my old machine and move my games onto it to take advantage of it
+until I finished the rest of the new machine.&lt;/p&gt;
+&lt;p&gt;Unfortunately, Battlefield 3 requires Origin, EA's terrible ripoff of
+Steam, which seems to add no value to the experience and as far as I can
+tell, does nothing but annoy anyone. One sign of its immaturity is that
+it doesn't easily support moving game installation directories like
+Steam does. However, I really didn't want to re-download all 10GB of
+Battlefield 3, so I did some digging to see what I could do. Buried deep
+in the EA forums, I found out how to move an install. It involves a
+registry edit, so make sure you are comfortable with regedit, and/or
+take a backup before doing this.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Copy the install directory to the new location. I used a copy manager
+(TeraCopy) to do this.&lt;/li&gt;
+&lt;li&gt;Run regedit.exe.&lt;/li&gt;
+&lt;li&gt;Navigate to [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\EA
+Games\Battlefield 3] in the registry.&lt;/li&gt;
+&lt;li&gt;Change the GDFBinary key to reflect the new location.&lt;/li&gt;
+&lt;li&gt;Change the Install Dir key to reflect the new location.&lt;/li&gt;
+&lt;li&gt;Navigate to [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Electronic
+Arts\Battlefield 3] and update the directories in this
+location--needed to ensure the uninstall functionality works.&lt;/li&gt;
+&lt;li&gt;Update your desktop and/or start menu shortcuts to reflect the new
+location.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Way more work than it should be, but there it is. Hopefully EA will get
+it together at some point, but I'm less than optimistic.&lt;/p&gt;
+&lt;p&gt;As another note, Origin uses a browser-based server browser. While this
+isn't the worst thing in the world, it does mean you have to restart the
+game every time you change servers. As such, the game really benefits
+from an SSD--my time from clicking &amp;quot;Join&amp;quot; to being in-game went from 3+
+minutes to about 30 seconds.&lt;/p&gt;
+</summary><category term="battlefield"></category><category term="bf3"></category><category term="games"></category><category term="gaming"></category><category term="howto"></category></entry><entry><title>Ubuntu 11.10 Font Sizes</title><link href="http://localhost:8000/ubuntu-11-10-font-sizes.html" rel="alternate"></link><updated>2011-10-21T13:24:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-10-21:ubuntu-11-10-font-sizes.html</id><summary type="html">&lt;p&gt;I love Ubuntu. All of my personal machines run it, and I rarely use
+anything else except at work. However, some decisions in the most recent
+release, 11.10, remove some basic configurability options that annoy me.&lt;/p&gt;
+&lt;p&gt;One of these is the ability to change the system font sizes. I don't
+want my windows to have giant size 16 titles--it's a waste of space, and
+while big fonts are all the rage, I don't want them wasting my valuable
+desktop real estate. However, there is no way to change this out of the
+box--an annoying oversight in my book.&lt;/p&gt;
+&lt;p&gt;Luckily it's easy to fix with an additional configuration tool:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;sudo &lt;span class="pre"&gt;apt-get&lt;/span&gt; install &lt;span class="pre"&gt;gnome-tweak-tool&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;After this, it's a simple matter of opening this tool (it will show up
+under &amp;quot;Advanced Settings&amp;quot; in your menu) and changing the requisite
+options under &amp;quot;Fonts.&amp;quot;&lt;/p&gt;
+&lt;p&gt;I don't think a user should have to download software to do something so
+basic, but there it is.&lt;/p&gt;
+</summary><category term="11.10"></category><category term="linux"></category><category term="ubuntu"></category></entry><entry><title>VIM: minibufexpl Performance Issues</title><link href="http://localhost:8000/vim-minibufexpl.html" rel="alternate"></link><updated>2011-10-21T12:53:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-10-21:vim-minibufexpl.html</id><summary type="html">&lt;p&gt;I work in consulting, and this means that I frequently am asked to work
+on clients' machines. As part of my most recent engagement, I've done a
+bit of quick Python scripting to take care of some straightforward
+tasks. I initially installed my default VIM setup on this machine, but
+have run into some issues with it that I haven't experienced elsewhere.&lt;/p&gt;
+&lt;p&gt;One of the biggest is an overall slowness when opening, closing, saving,
+or even editing files. Sometimes it would take up to ten seconds to
+enter insert mode--totally unacceptable, and strange for an editor like
+VIM that was originally built to work over paltry network connections
+20+ years ago.&lt;/p&gt;
+&lt;p&gt;As it turns out, like many corporate environments, very little is
+actually stored on the local machine. Almost every location that a user
+has write access to is a network drive that has been mapped to a drive
+letter. Also like many corporate networks and SAN setups, this one was
+overtaxed and slow. This, combined with one of the plugins I was using,
+the otherwise excellent minibufexpl, turned out to be causing the bulk
+of my issues, which I discovered after deactivating all of my plugins
+and reactivating them one by one. It seems that minibufexpl was
+traversing all of the open buffers every time a user performed an
+action. I found some chatter about this, and some proposed patches, but
+even after updating to the most recent version, the issue persisted.&lt;/p&gt;
+&lt;p&gt;In order to solve it, I unfortunately had to move away from minibufexpl
+for this machine, and replace it with BufExplorer. BufExplorer is not
+ideal for me--I can see how it would be helpful for editing dozens of
+files at once, but I rarely have more than ten or so open at a time, so
+minibufexpl's visual buffer representation is much better for me.
+However, this new setup does fix my issues and after remapping some keys
+in my vimrc--primarily binding &lt;tt class="docutils literal"&gt;&amp;lt;leader&amp;gt;b&lt;/tt&gt; to &lt;tt class="docutils literal"&gt;:BufExplorer&lt;/tt&gt;, it's
+almost as nice.&lt;/p&gt;
+&lt;p&gt;Hopefully, minibufexpl will fix this at some point in the future. Until
+then, its BufExplorer for me.&lt;/p&gt;
+</summary><category term="editor"></category><category term="vim"></category></entry><entry><title>Introduction</title><link href="http://localhost:8000/introduction.html" rel="alternate"></link><updated>2011-10-21T12:42:00+02:00</updated><author><name>Alex</name></author><id>tag:localhost:8000,2011-10-21:introduction.html</id><summary type="html">&lt;p&gt;My name is Alex Ravenel, and I have been tinkering with technology since
+I broke my parent's brand new 386 while playing hangman on it in the
+basement at the age of four. I'm starting this blog to serve mostly as a
+reference for myself as I tinker with various different things--linux,
+programming, vim, xbmc, whatever. Personal blogs have always been one of
+the greatest references available to solving the myriad of little issues
+one inevitably runs into when tinkering, and I'd like to leave a record
+of the issues that I faced that I didn't find much existing information
+on. At the least, this will be a reference for me if I ever face the
+issue again and can't remember how I resolved it. At best, I might help
+someone else who is facing the same issue.&lt;/p&gt;
+&lt;p&gt;I probably won't post here regularly or even often--but I do hope that
+someone can find this useful.&lt;/p&gt;
+</summary></entry></feed>

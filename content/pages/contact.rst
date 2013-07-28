@@ -1,4 +1,4 @@
-Contact Alex
+Contact
 ##############
 
 :Author: Alex Ravenel

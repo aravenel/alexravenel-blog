@@ -1,88 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Alex Ravenel - Linux KenIngle.com</title>
 
-    <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css">
-    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<head>
+  <link rel="stylesheet/less" type="text/css" href="http://localhost:8000/theme/css/style.less">
+  <script src="http://localhost:8000/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Alex Ravenel">
+  <meta name="description" content="Posts and writings by Alex Ravenel">
+
+    
+  
+  <title>
+    Category: Linux  </title>
+
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div><img src="" class="grv-img"/></div>
-        <div class="title"><a href="http://localhost:8000/">Alex Ravenel </a></div>
-        <div class="sub-title"></div>
 
-        <p>
-      <div class="view"><a href="http://localhost:8000/pages/about-alex.html">About Alex</a></div>
-      <div class="view"><a href="http://localhost:8000/pages/contact-alex.html">Contact Alex</a></div>
-    <div class="view"><a href="http://localhost:8000/archives.html">Archives</a></div>
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://localhost:8000">
+                <img src="http://localhost:8000/theme/images/logo.png" alt="logo">
+              </a>
+      <h2><a href="http://localhost:8000">Alex Ravenel</a></h2>
+      <p></p>
+      <ul>
+                <li><a href="http://localhost:8000">Home</a></li>
+                        <li><a href="http://localhost:8000/pages/about-alex.html">About Alex</a></li>
+                <li><a href="http://localhost:8000/pages/contact.html">Contact</a></li>
+                        <br /><br />
+                <li><a href="http://www.twitter.com/aravenel" target="_blank">twitter</a></li>
+                <li><a href="https://github.com/aravenel" target="_blank">github</a></li>
+                <li><a href="http://www.linkedin.com/profile/view?id=23712282" target="_blank">linkedin</a></li>
+              </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>Category: Linux
 </p>
+    </header>
 
-<!-- Social links -->
-<div class="social">
-<h4>Follow Me</h4>
-<ul>
-      <li><a href="http://www.twitter.com/aravenel">twitter</a></li>
-      <li><a href="https://github.com/aravenel">github</a></li>
-      <li><a href="http://www.linkedin.com/profile/view?id=23712282">linkedin</a></li>
-  </ul>
-</div>
-
-      </header>
-      <section>
-                  <div class="front-title"><a href="http://localhost:8000/ubuntu-11-10-font-sizes.html">Ubuntu 11.10 Font Sizes</a></div>
-      <p>
-<small>
-<abbr class="published" title="2011-10-21T13:24:00">
-  Fri 21 October 2011
-</abbr> | 
-  tags: 
-      <a href="http://localhost:8000/tag/1110.html">11.10</a>, 
-      <a href="http://localhost:8000/tag/linux.html">linux</a>, 
-      <a href="http://localhost:8000/tag/ubuntu.html">ubuntu</a>, 
-   -- (<a href="http://localhost:8000/ubuntu-11-10-font-sizes.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>I love Ubuntu. All of my personal machines run it, and I rarely use
+    <article>
+  <div id="article_title">
+    <h3><a href="http://localhost:8000/ubuntu-11-10-font-sizes.html">Ubuntu 11.10 Font Sizes</a></h3>
+  </div>
+  <div id="article_text">
+            <p>I love Ubuntu. All of my personal machines run it, and I rarely use
 anything else except at work. However, some decisions in the most recent
 release, 11.10, remove some basic configurability options that annoy me.</p>
-<p>One of these is the ability to change the system font sizes. I ...</p> 
-      <div class="read-more"><a href="http://localhost:8000/ubuntu-11-10-font-sizes.html">read more...</a></div>
-      <hr />
-    
-                    </section>
-      <footer>
-        <p><small>&copy; Alex Ravenel &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <!-- Scale fix -->
-    <script>
-      var metas = document.getElementsByTagName('meta');
-      var i;
-      
-      if (navigator.userAgent.match(/iPhone/i)) {
-        for (i=0; i<metas.length; i++) {
-          if (metas[i].name == "viewport") {
-            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
-          }
-        }
-      
-        document.addEventListener("gesturestart", gestureStart, false);
-      }
+<p>One of these is the ability to change the system font sizes. I don't
+want my windows to have giant size 16 titles--it's a waste of space, and
+while big fonts are all the rage, I don't want them wasting my valuable
+desktop real estate. However, there is no way to change this out of the
+box--an annoying oversight in my book.</p>
+<p>Luckily it's easy to fix with an additional configuration tool:</p>
+<p><tt class="docutils literal">sudo <span class="pre">apt-get</span> install <span class="pre">gnome-tweak-tool</span></tt></p>
+<p>After this, it's a simple matter of opening this tool (it will show up
+under &quot;Advanced Settings&quot; in your menu) and changing the requisite
+options under &quot;Fonts.&quot;</p>
+<p>I don't think a user should have to download software to do something so
+basic, but there it is.</p>
 
-      function gestureStart() {
-        for (i=0; i<metas.length; i++) {
-          if (metas[i].name == "viewport") {
-            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
-          }
-        }
-      }
+            <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'alexravenel'
+        var disqus_identifier = "ubuntu-11-10-font-sizes.html";
+        var disqus_url = "http://localhost:8000/ubuntu-11-10-font-sizes.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
     </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</article>
+
+    <footer>
+      <p id="paginator">
+
+</p>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
   </body>
 </html>

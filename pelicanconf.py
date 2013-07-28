@@ -37,7 +37,7 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 DISQUS_SITENAME = 'alexravenel'
 
-THEME = 'themes/sundown/'
+THEME = 'themes/svbhack/'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

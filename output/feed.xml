@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alex Ravenel</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feed.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2012-08-23T11:53:00+02:00</updated><entry><title>Compiling Python Extensions in Windows Inside Virtualenv</title><link href="http://localhost:8000/compiling-python-extensions-in-windows-inside-virtualenv.html" rel="alternate"></link><updated>2012-08-23T11:53:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-08-23:compiling-python-extensions-in-windows-inside-virtualenv.html</id><summary type="html">&lt;p&gt;If you are writing much Python code, there is a good chance you are
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alex Ravenel</title><link href="http://alexravenel.com/" rel="alternate"></link><link href="http://alexravenel.com/feed.xml" rel="self"></link><id>http://alexravenel.com/</id><updated>2012-08-23T11:53:00+02:00</updated><entry><title>Compiling Python Extensions in Windows Inside Virtualenv</title><link href="http://alexravenel.com/compiling-python-extensions-in-windows-inside-virtualenv.html" rel="alternate"></link><updated>2012-08-23T11:53:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2012-08-23:compiling-python-extensions-in-windows-inside-virtualenv.html</id><summary type="html">&lt;p&gt;If you are writing much Python code, there is a good chance you are
 using Virtualenv. If you are doing this under Windows, you may have had
 any number of problems (see &lt;a class="reference external" href="http://www.alexravenel.com/?p=82"&gt;previous rant&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;My most recent issue came with trying to install Celery inside a
@@ -20,7 +20,7 @@ script in your venv/Scripts folder to add the following line:&lt;/p&gt;
 &lt;tt class="docutils literal"&gt;set &lt;span class="pre"&gt;LIBRARY_PATH=c:\python27\libs&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
 &lt;p&gt;Voila. No more compiler errors.&lt;/p&gt;
 &lt;p&gt;Answer found (as usual!) on &lt;a class="reference external" href="http://stackoverflow.com/questions/1015605/how-do-i-compile-python-c-extensions-using-mingw-inside-a-virtualenv"&gt;StackOverflow&lt;/a&gt;&lt;/p&gt;
-</summary><category term="coding"></category><category term="programming"></category><category term="python"></category><category term="virtualenv"></category><category term="windows"></category></entry><entry><title>Don't write Python code in Windows (or, how to install Celery via pip in Windows).</title><link href="http://localhost:8000/dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html" rel="alternate"></link><updated>2012-07-23T14:52:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-07-23:dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html</id><summary type="html">&lt;p&gt;Seriously, just don't.&lt;/p&gt;
+</summary><category term="coding"></category><category term="programming"></category><category term="python"></category><category term="virtualenv"></category><category term="windows"></category></entry><entry><title>Don't write Python code in Windows (or, how to install Celery via pip in Windows).</title><link href="http://alexravenel.com/dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html" rel="alternate"></link><updated>2012-07-23T14:52:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2012-07-23:dont-write-python-code-in-windows-or-how-to-install-celery-via-pip-in-windows.html</id><summary type="html">&lt;p&gt;Seriously, just don't.&lt;/p&gt;
 &lt;p&gt;I love Python. I got my start writing it at work to automate simple but
 tedious tasks (&amp;quot;rename these 4,000 files according to their author and
 timestamp&amp;quot;), but quickly started tinkering with it for all sorts of
@@ -67,7 +67,7 @@ documentation would have it--you need to run
 &lt;p&gt;Seriously, don't write Python code on Windows--if you can avoid it. I'm
 considering installing VirtualBox on the machines on which I have to run
 Windows just to avoid having to deal with these headaches.&lt;/p&gt;
-</summary><category term="celery"></category><category term="coding"></category><category term="pip"></category><category term="programming"></category><category term="python"></category><category term="windows"></category></entry><entry><title>Manually Set Netflix Streaming Bitrate</title><link href="http://localhost:8000/manually-set-netflix-streaming-bitrate.html" rel="alternate"></link><updated>2012-04-07T13:40:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-04-07:manually-set-netflix-streaming-bitrate.html</id><summary type="html">&lt;p&gt;I stream Netflix to an HTPC I have setup. Depending on what I am
+</summary><category term="celery"></category><category term="coding"></category><category term="pip"></category><category term="programming"></category><category term="python"></category><category term="windows"></category></entry><entry><title>Manually Set Netflix Streaming Bitrate</title><link href="http://alexravenel.com/manually-set-netflix-streaming-bitrate.html" rel="alternate"></link><updated>2012-04-07T13:40:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2012-04-07:manually-set-netflix-streaming-bitrate.html</id><summary type="html">&lt;p&gt;I stream Netflix to an HTPC I have setup. Depending on what I am
 watching, I sometimes want to manually tweak the quality of the
 streaming beyond Netflix's automatic detection--for example, some videos
 playing in full HD overwhelm the machine's ability to decode the video,
@@ -79,7 +79,7 @@ an option to manually set the bitrate. Note that doing this will turn
 off Netflix's automatic detection for the current video, so for example
 if your network connection slows down, you may see stuttering and/or
 buffering.&lt;/p&gt;
-</summary></entry><entry><title>Mango Arepa Sauce</title><link href="http://localhost:8000/caracas-arepa-bar-sauce.html" rel="alternate"></link><updated>2012-03-25T14:09:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-03-25:caracas-arepa-bar-sauce.html</id><summary type="html">&lt;p&gt;And now for something completely different... I live in New York, and
+</summary></entry><entry><title>Mango Arepa Sauce</title><link href="http://alexravenel.com/caracas-arepa-bar-sauce.html" rel="alternate"></link><updated>2012-03-25T14:09:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2012-03-25:caracas-arepa-bar-sauce.html</id><summary type="html">&lt;p&gt;And now for something completely different... I live in New York, and
 there is this fantastic restaurant in the East Village called Caracas
 Arepa Bar. While the Arepas there are great, the best part by far is
 this incredible sauce they have that everyone slathers all over
@@ -104,7 +104,7 @@ archive here.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Put all ingredients but olive oil in blender. Once pureed, gradually mix
 in olive oil until at desired consistency.&lt;/p&gt;
-</summary></entry><entry><title>Gigabyte GA-Z68AP-D3 Network Issues in Ubuntu</title><link href="http://localhost:8000/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html" rel="alternate"></link><updated>2012-01-02T09:30:00+01:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2012-01-02:gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html</id><summary type="html">&lt;p&gt;I recently purchased a Gigabyte GA-Z68AP-D3 motherboard as part of a new
+</summary></entry><entry><title>Gigabyte GA-Z68AP-D3 Network Issues in Ubuntu</title><link href="http://alexravenel.com/gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html" rel="alternate"></link><updated>2012-01-02T09:30:00+01:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2012-01-02:gigabyte-ga-z68ap-d3-network-issues-in-ubuntu.html</id><summary type="html">&lt;p&gt;I recently purchased a Gigabyte GA-Z68AP-D3 motherboard as part of a new
 PC build. When I went to install Ubuntu on it, my network connection was
 horribly slow--time outs all over the place, slow downloads, and even
 slow transfer speeds on the local network. A bit of research showed a
@@ -143,7 +143,7 @@ everything is working just like it should.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-</summary><category term="linux"></category><category term="network"></category><category term="ubuntu"></category></entry><entry><title>How to Move a Battlefield 3 Install Directory</title><link href="http://localhost:8000/moving-a-battlefield-3-install.html" rel="alternate"></link><updated>2011-11-14T11:11:00+01:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-11-14:moving-a-battlefield-3-install.html</id><summary type="html">&lt;p&gt;I play the occasional PC game with my out-of-town friends--we all get on
+</summary><category term="linux"></category><category term="network"></category><category term="ubuntu"></category></entry><entry><title>How to Move a Battlefield 3 Install Directory</title><link href="http://alexravenel.com/moving-a-battlefield-3-install.html" rel="alternate"></link><updated>2011-11-14T11:11:00+01:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2011-11-14:moving-a-battlefield-3-install.html</id><summary type="html">&lt;p&gt;I play the occasional PC game with my out-of-town friends--we all get on
 a Vent server and play a few games once a week as a good way to stay in
 touch. One of the games is Battlefield 3. I am in the middle of slowly
 building a new machine, purchasing parts as they go on sale, and as part
@@ -180,7 +180,7 @@ isn't the worst thing in the world, it does mean you have to restart the
 game every time you change servers. As such, the game really benefits
 from an SSD--my time from clicking &amp;quot;Join&amp;quot; to being in-game went from 3+
 minutes to about 30 seconds.&lt;/p&gt;
-</summary><category term="battlefield"></category><category term="bf3"></category><category term="games"></category><category term="gaming"></category><category term="howto"></category></entry><entry><title>Ubuntu 11.10 Font Sizes</title><link href="http://localhost:8000/ubuntu-11-10-font-sizes.html" rel="alternate"></link><updated>2011-10-21T13:24:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-10-21:ubuntu-11-10-font-sizes.html</id><summary type="html">&lt;p&gt;I love Ubuntu. All of my personal machines run it, and I rarely use
+</summary><category term="battlefield"></category><category term="bf3"></category><category term="games"></category><category term="gaming"></category><category term="howto"></category></entry><entry><title>Ubuntu 11.10 Font Sizes</title><link href="http://alexravenel.com/ubuntu-11-10-font-sizes.html" rel="alternate"></link><updated>2011-10-21T13:24:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2011-10-21:ubuntu-11-10-font-sizes.html</id><summary type="html">&lt;p&gt;I love Ubuntu. All of my personal machines run it, and I rarely use
 anything else except at work. However, some decisions in the most recent
 release, 11.10, remove some basic configurability options that annoy me.&lt;/p&gt;
 &lt;p&gt;One of these is the ability to change the system font sizes. I don't
@@ -195,7 +195,7 @@ under &amp;quot;Advanced Settings&amp;quot; in your menu) and changing the requi
 options under &amp;quot;Fonts.&amp;quot;&lt;/p&gt;
 &lt;p&gt;I don't think a user should have to download software to do something so
 basic, but there it is.&lt;/p&gt;
-</summary><category term="11.10"></category><category term="linux"></category><category term="ubuntu"></category></entry><entry><title>VIM: minibufexpl Performance Issues</title><link href="http://localhost:8000/vim-minibufexpl.html" rel="alternate"></link><updated>2011-10-21T12:53:00+02:00</updated><author><name>admin</name></author><id>tag:localhost:8000,2011-10-21:vim-minibufexpl.html</id><summary type="html">&lt;p&gt;I work in consulting, and this means that I frequently am asked to work
+</summary><category term="11.10"></category><category term="linux"></category><category term="ubuntu"></category></entry><entry><title>VIM: minibufexpl Performance Issues</title><link href="http://alexravenel.com/vim-minibufexpl.html" rel="alternate"></link><updated>2011-10-21T12:53:00+02:00</updated><author><name>admin</name></author><id>tag:alexravenel.com,2011-10-21:vim-minibufexpl.html</id><summary type="html">&lt;p&gt;I work in consulting, and this means that I frequently am asked to work
 on clients' machines. As part of my most recent engagement, I've done a
 bit of quick Python scripting to take care of some straightforward
 tasks. I initially installed my default VIM setup on this machine, but
@@ -226,7 +226,7 @@ in my vimrc--primarily binding &lt;tt class="docutils literal"&gt;&amp;lt;leader
 almost as nice.&lt;/p&gt;
 &lt;p&gt;Hopefully, minibufexpl will fix this at some point in the future. Until
 then, its BufExplorer for me.&lt;/p&gt;
-</summary><category term="editor"></category><category term="vim"></category></entry><entry><title>Introduction</title><link href="http://localhost:8000/introduction.html" rel="alternate"></link><updated>2011-10-21T12:42:00+02:00</updated><author><name>Alex</name></author><id>tag:localhost:8000,2011-10-21:introduction.html</id><summary type="html">&lt;p&gt;My name is Alex Ravenel, and I have been tinkering with technology since
+</summary><category term="editor"></category><category term="vim"></category></entry><entry><title>Introduction</title><link href="http://alexravenel.com/introduction.html" rel="alternate"></link><updated>2011-10-21T12:42:00+02:00</updated><author><name>Alex</name></author><id>tag:alexravenel.com,2011-10-21:introduction.html</id><summary type="html">&lt;p&gt;My name is Alex Ravenel, and I have been tinkering with technology since
 I broke my parent's brand new 386 while playing hangman on it in the
 basement at the age of four. I'm starting this blog to serve mostly as a
 reference for myself as I tinker with various different things--linux,
